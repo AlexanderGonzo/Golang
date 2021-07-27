@@ -92,4 +92,7 @@ Common Go Interview Questions
 - What is Go 2?
 - How do you initialize a struct in Go?
 
+Resources
+https://www.openmymind.net/assets/go/go.pdf
+https://github.com/golang/go/wiki/Learn
 https://betterprogramming.pub/top-5-common-golang-coding-mistakes-the-ugly-sides-of-a-great-programming-language-e0b64915707
