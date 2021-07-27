@@ -17,7 +17,6 @@ Go Random Notes
 
 Function Notes
 - When a Function is written with a capital letter the capital letter will get exported automatically.
-- 
 
 Test
 - Can write examples that can be used as tests that people can use
@@ -26,6 +25,7 @@ Test
 Packages
 - Basically a github repo or a collection of files that we import into our application
 
+Go Overview
 Go aims to reduce typing and complexity using a minimal amount of keywords, so you will code less than in other languages like Java. Keywords can be parsed without a symbol table, as the grammar is LALR(1). Go acts like a hybrid, imperative language, but it is built with concurrency in mind. Here are some of the unique features of Go:
 
 - No function or operator overloading
@@ -34,6 +34,8 @@ Go aims to reduce typing and complexity using a minimal amount of keywords, so y
 - No variant types
 - No dynamic code loading or dynamic libraries
 - No assertions or immutable variables
+
+Go is a compiled language there is no need for an interrupter. Go, C, and Rust are all languages where the code is first converted to machine code by the compiler before it's executed.
 
 Go Basics Topics
 - Filenames, keywords, identifiers
@@ -89,3 +91,5 @@ Common Go Interview Questions
 - How do you concatenate strings in Go?
 - What is Go 2?
 - How do you initialize a struct in Go?
+
+https://betterprogramming.pub/top-5-common-golang-coding-mistakes-the-ugly-sides-of-a-great-programming-language-e0b64915707
