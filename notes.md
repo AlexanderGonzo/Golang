@@ -70,7 +70,7 @@ Go Basics Topics
     var bytesRead int // number of bytes read XXX DO NOT DO XX
     var n int // number of bytes read !! DO THIS !!
     ```
-    -- use the complete words in larger scopes 
+    - use the complete words in larger scopes 
     ```go
     package file 
     var fileClosed bool 
