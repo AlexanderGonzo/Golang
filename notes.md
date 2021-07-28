@@ -185,7 +185,69 @@ Go Basics Topics
     Args[1] // Stores first argument "hi"
     Args[2] // Stores second argument "yo"
     ```
+- Raw String Literals
+    - characters are wrapped with `hi` and can contain multiple lines of text
+    - Unlike string literals the first value in a raw string literal is not interpreted.
+    - raw string literals is an unprocessed string data.
+    ```go
+    var hi string = `hi
+                    there!`
+    ```
+- IOTA
+    - iota is a built-on constant generator which generates ever increasing numbers 
+    - iota starts at 0, unless expressed otherwise
+    - You can use an expression with iota. So, the other constants will repeat the express 
+    ```go
+        const(
+            monday = 0
+            tuesday = 1
+            wednesday = 2
+            ..
+            sunday = 6
+        )
+        fmt.Println(monday, ..., sunday) // 0 1 2 3 4 5 6 
 
+        //IOTA
+        const (
+            monday = iota
+            tuesday
+            wednesday
+            sunday 
+        )
+        fmt.Println(monday, ... , sunday) // 0 1 2 3 4 5 6 
+
+        const (
+            monday = iota + 1
+            tuesday
+            wednesday
+            sunday 
+        )
+        fmt.Println(monday, ... , sunday) // 1 2 3 4 5 6 7 
+    ```
+    - blank identifer 
+    ```go
+        const (
+            EST = -5
+            MST = -7
+            PST = -8
+        )
+        fmt.Println(EST, MST, PST) // -5 -7 -8
+
+        const (
+            EST = -(5 + iota)
+            MST  
+            PST  
+        )
+        fmt.Println(EST, MST, PST) // -5 -6 -7
+
+        const (
+            EST = -(5 + iota)
+            _
+            MST  
+            PST  
+        )
+        fmt.Println(EST, MST, PST) // -5 -7 -8
+    ```
 
 
 Go Advanced Topics
