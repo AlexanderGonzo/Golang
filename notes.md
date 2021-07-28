@@ -35,7 +35,7 @@ Go aims to reduce typing and complexity using a minimal amount of keywords, so y
 - No dynamic code loading or dynamic libraries
 - No assertions or immutable variables
 
-Go is a compiled language there is no need for an interrupter. Go, C, and Rust are all languages where the code is first converted to machine code by the compiler before it's executed.
+Go is a compiled language there is no need for an interrupter. Go, C, and Rust are all languages where the code is first converted to machine code by the compiler before it's executed. Code is ran from top to bottom.
 
 Go Basics Topics
 - Filenames, keywords, identifiers
@@ -48,6 +48,145 @@ Go Basics Topics
 - Goroutine, Channel, Buffer
 - Panic, Defer, Error, Recover
 - Go design patterns
+- Variables
+    - You need to declare a variable with a unique name "identifier" before you can use it.
+    - Naming Rules. Also apply to function and package.
+        - Names always start with a letter or an uppercase letter
+        - Upper case letters are exported
+        - Underscore characters
+        - unicode letters
+        - Names cannot start with numbers or punctuation  
+    - Every Variable and value has a type. Go is a strongly-typed language. (static type)
+    - Static Types: cannot change type after declaration 
+    - Blank identifiers discard values.
+- Naming Convention 
+    - Naming is important because readability = maintainability 
+    - use the first few letters of the word 
+    ```go
+    var fv string // flag value 
+    ```
+    - use few letters in smaller scopes 
+    ```go
+    var bytesRead int // number of bytes read XXX DO NOT DO XX
+    var n int // number of bytes read !! DO THIS !!
+    ```
+    -- use the complete words in larger scopes 
+    ```go
+    package file 
+    var fileClosed bool 
+    ```
+    - Use mixedCaps like this
+    ```go
+    type PlayerScore struct 
+    ```
+    - Use all capitals for acronyms
+     ```go
+    var localAPI string // GOOD
+    var localApi string // BAD 
+    ```
+    - Do not Stutter 
+     ```go
+    player.PlayerScore // BAD
+    player.Score // GOOD  
+    ```
+    - Do not use under_scores or LIKE_THIS
+    ```go
+    const MAX_TIME int // BAD
+    const MaxTime int // GOOD
+    const N int // GOOD 
+    ```
+    - Not Idiomatic "unnecessarily verbose"
+    ```go
+        func Read(buffer *Buffer, inBuffer []byte) (size int, err error) {
+            if buffer.empty() {
+                buffer.Reset() 
+            }
+            size = copy( 
+        inBuffer, 
+        buffer.buffer[buffer.offset:])
+            buffer.offset += size
+            return size, nil
+        }
+    ```
+    - Idiomatic "concise and idiomatic" 
+       ```go
+        func Read(b *Buffer, p []byte) (n int, err error) {
+            if b.empty() {
+                b.Reset() 
+            }
+            n = copy(p, b.buf[b.off:])
+            b.off += n
+            return n, nil
+        }
+        ```
+    - Common Abbreviations used in Go
+        ```go
+        var s string // string
+        var i int // index
+        var msg string // message
+        var v string // value
+        var val string // value
+        var num int // number
+        var fv string // flag value
+        var err error // error value
+        var args []string // arguments
+        var seen bool // has seen?
+        var parsed bool // parsing ok?
+        var buf []byte // buffer
+        var off int // offset
+        var op int // operation
+        var opRead int // read operation
+        var l int // length
+        var n int // number or number of
+        var m int // another number
+        var c int // capacity
+        var c int // character
+        var a int // array
+        var r rune // rune
+        var sep string // separator
+        var src int // source
+        var dst int // destination
+        var b byte // byte
+        var b []byte // buffer
+        var buf []byte //buffer
+        var w io.Writer //writer 
+        var r io.Reader // reader 
+        var pos int //position 
+        ...list goes on and on..
+        ```
+- Short VS Normal Declaration
+    - Normal Declaration
+        - If you do not know the initial value
+        - When you need a package scoped variable
+        - When you want to group variables together for greater readability
+    - Short Declaration 
+        - Most used and preferred declaration in Go
+        - If you know the initial value
+        - To keep the code concise and easy to read
+        - For re-declaration  
+        - Can be used inside if and switch statements that are scoped
+    - Note
+        - Beware of Shadowing 
+- Type Conversion 
+    - type(value)
+- Introduction to Slices
+    - A slice can store multiple values 
+    ```go
+    var Args []string
+    ```
+    - Here Arg's type is a "slice of string". Which means args can store a series of string values inside
+    - Args can store multiple string values
+    - but the slice itself is a single value it just points to the other values it stores
+    - Each value inside a slice is an unnamed variable. 
+    - How do we access the value w/out the name? We can use index expressions 
+    ```go
+    go run main.go hi yo
+    Args[0] // Stores path to the program
+    Args[1] // Stores first argument "hi"
+    Args[2] // Stores second argument "yo"
+    ```
+
+
 
 Go Advanced Topics
 - Go dependency management tools
